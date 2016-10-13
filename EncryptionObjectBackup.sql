@@ -12,12 +12,16 @@ GO
 
 
 /*********************************************************************************************
-EncryptionObjectBackup V1.0
-Clint Spann
+Create By:	Clint Spann
+
+
+Revision History:
+-- 8/5/2016 – Created.  Yay!!!
   
   
 Purpose:	This procedure generates a script which can be manually run to back up all certs and keys to the 
 			directory of your choosing with a password of your choosing		
+
      
 Disclaimer: Use this procedure at your own risk.   I take no responsibility for the outcome of this procedure 
 			on your system(s).  Please read, and be aware of, the "NEEDED TESTING" and "KNOWN ISSUES/CAVEATS" below - 
@@ -35,16 +39,30 @@ KNOWN ISSUES/CAVEATS:
 --if a password is needed to decrypt a key when backing it up, it is not currently handled
 
 
--- V1.0
--- 8/5/2016 – Created.  Yay!!!
-
-
-
-     
 Parameters:
 
+@pSMKPass
+	Password for the Service Master Key
 
---
+@pSMKPath
+	Backup path for the Service Master Key
+
+@pDMKPass 
+	Password for the Database Master Key
+
+@pDMKPath
+	Backup path for the Database Master Key
+
+@pCertPass
+	Password for Certificates
+
+@pCertPath
+	Path for Certificates
+
+@pPrivateKeyPath
+	Path for Private Key of Certificates
+
+-----------------------------------------------
 TEST BLOCK
 
 exec [dbo].[EncryptionObjectBackup]
@@ -56,7 +74,7 @@ exec [dbo].[EncryptionObjectBackup]
 ,@pCertPath = 'A:\Backups\'
 ,@pPrivateKeyPath = 'A:\Backups\'
 
-
+-----------------------------------------------
 *********************************************************************************************/
 
 
